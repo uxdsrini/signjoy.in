@@ -6,11 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Wait for GSAP to be ready ─────────────────────────────────────────────
   function initAll() {
-    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined' || typeof Lenis === 'undefined' || typeof ScrollTrigger === 'undefined') {
       setTimeout(initAll, 50);
       return;
     }
     gsap.registerPlugin(ScrollTrigger);
+    initSmoothScroll();
     initLoader();
   }
 
@@ -67,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reveal tagline
     if (tagline) {
       setTimeout(() => {
-        gsap.to(tagline, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out', y: 0, from: { y: 10, opacity: 0 } });
         gsap.fromTo(tagline, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' });
       }, 400);
     }
@@ -249,17 +249,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Work items stagger
     const workItems = document.querySelectorAll('.work-item');
     if (workItems.length) {
-      gsap.to(workItems, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.work-grid',
-          start: 'top 80%',
-          once: true
-        }
+      workItems.forEach(item => {
+        const info = item.querySelector('.work-info');
+        const img = item.querySelector('.work-img');
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: item,
+            start: 'top 85%',
+            once: true
+          }
+        });
+
+        // Reveal parent item first
+        tl.to(item, { opacity: 1, y: 0, duration: 0.1 });
+
+        tl.fromTo(img, 
+          { clipPath: 'inset(100% 0% 0% 0%)', y: 40 },
+          { clipPath: 'inset(0% 0% 0% 0%)', y: 0, duration: 1.2, ease: 'power4.out' }
+        );
+        
+        tl.fromTo(info,
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+          '-=0.8'
+        );
       });
     }
 
@@ -336,6 +350,23 @@ document.addEventListener('DOMContentLoaded', () => {
         start: 'top top',
         end: 'bottom top',
         scrub: 1
+      }
+    });
+
+    // ── Work items parallax
+    document.querySelectorAll('.work-item').forEach(item => {
+      const inner = item.querySelector('.work-placeholder');
+      if (inner) {
+        gsap.to(inner, {
+          yPercent: 20,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: item,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true
+          }
+        });
       }
     });
 
@@ -418,18 +449,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ─── SMOOTH SCROLL ──────────────────────────────────────────────────────────
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const id = anchor.getAttribute('href');
-      if (id === '#') return;
-      const target = document.querySelector(id);
-      if (!target) return;
-      e.preventDefault();
-      const offset = document.getElementById('navbar').offsetHeight;
-      const targetY = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: targetY, behavior: 'smooth' });
+  function initSmoothScroll() {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
     });
-  });
+
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const id = anchor.getAttribute('href');
+        if (id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        const navbar = document.getElementById('navbar');
+        const offset = navbar ? navbar.offsetHeight : 0;
+        lenis.scrollTo(target, { offset: -offset });
+      });
+    });
+  }
 
   // ─── SERVICE CARD HOVER TILT ────────────────────────────────────────────────
   const serviceCards = document.querySelectorAll('.service-card');
@@ -460,6 +507,21 @@ document.addEventListener('DOMContentLoaded', () => {
     item.addEventListener('mouseleave', () => {
       gsap.to(img, { scale: 1, duration: 0.6, ease: 'power2.out' });
     });
+    
+    // Magnetic Explore Badge
+    const overlay = item.querySelector('.work-overlay');
+    const badge = item.querySelector('.work-overlay-inner');
+    if (overlay && badge) {
+      overlay.addEventListener('mousemove', (e) => {
+        const rect = overlay.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        gsap.to(badge, { x: x * 0.4, y: y * 0.4, duration: 0.6, ease: 'power2.out' });
+      });
+      overlay.addEventListener('mouseleave', () => {
+        gsap.to(badge, { x: 0, y: 0, duration: 0.6, ease: 'power2.out' });
+      });
+    }
   });
 
   // ─── BUTTON MAGNETIC EFFECT ─────────────────────────────────────────────────
