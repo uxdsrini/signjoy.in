@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signjoy — Design & Web Dev Agency</title>
+  <meta name="description" content="Signjoy is a premium design and web development agency crafting digital experiences that convert and inspire." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js" defer></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- PAGE LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <span class="loader-logo">signjoy</span>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <span class="loader-tagline">crafting digital experiences</span>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- NAVIGATION -->
+  <header id="navbar">
+    <nav class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-dot"></span>signjoy
+      </a>
+      <ul class="nav-links">
+        <li><a href="#work" class="nav-link">Work</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#process" class="nav-link">Process</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">
+        <span>Let's Talk</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul>
+        <li><a href="#work" class="mob-link">Work</a></li>
+        <li><a href="#services" class="mob-link">Services</a></li>
+        <li><a href="#about" class="mob-link">About</a></li>
+        <li><a href="#process" class="mob-link">Process</a></li>
+        <li><a href="#contact" class="mob-link mob-cta">Let's Talk →</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+      <div class="hero-bg">
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        <div class="hero-grid"></div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Available for projects — 2025
+        </div>
+        <h1 class="hero-title">
+          <span class="line-wrap"><span class="line">We Design</span></span>
+          <span class="line-wrap"><span class="line accent-line">Digital Things</span></span>
+          <span class="line-wrap"><span class="line">That Matter</span></span>
+        </h1>
+        <p class="hero-sub">
+          Signjoy is a boutique design & development studio. We build brands, websites, and digital products that earn attention — and drive growth.
+        </p>
+        <div class="hero-actions">
+          <a href="#work" class="btn btn-primary">
+            <span>View Our Work</span>
+            <div class="btn-hover-bg"></div>
+          </a>
+          <a href="#contact" class="btn btn-ghost">Start a Project →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-num" data-target="120">0</span><span>+</span>
+            <span class="stat-label">Projects Delivered</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="98">0</span><span>%</span>
+            <span class="stat-label">Client Satisfaction</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num" data-target="6">0</span><span>+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-card card-1">
+          <div class="card-icon">✦</div>
+          <div class="card-text">Brand Design</div>
+        </div>
+        <div class="hero-card card-2">
+          <div class="card-icon">◈</div>
+          <div class="card-text">Web Development</div>
+        </div>
+        <div class="hero-card card-3">
+          <div class="card-icon">⬡</div>
+          <div class="card-text">UI/UX Design</div>
+        </div>
+        <div class="hero-mockup">
+          <div class="mockup-screen">
+            <div class="mock-bar"></div>
+            <div class="mock-content">
+              <div class="mock-img"></div>
+              <div class="mock-lines">
+                <div class="mock-line w-80"></div>
+                <div class="mock-line w-60"></div>
+                <div class="mock-line w-70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-indicator">
+        <div class="scroll-line"></div>
+        <span>scroll</span>
+      </div>
+    </section>
+
+    <!-- MARQUEE TICKER -->
+    <section class="ticker-section">
+      <div class="ticker-track">
+        <div class="ticker-inner">
+          <span>Brand Identity</span><span class="ticker-sep">✦</span>
+          <span>Web Design</span><span class="ticker-sep">✦</span>
+          <span>UI/UX</span><span class="ticker-sep">✦</span>
+          <span>Web Development</span><span class="ticker-sep">✦</span>
+          <span>Motion Design</span><span class="ticker-sep">✦</span>
+          <span>SEO</span><span class="ticker-sep">✦</span>
+          <span>Digital Marketing</span><span class="ticker-sep">✦</span>
+          <span>E-Commerce</span><span class="ticker-sep">✦</span>
+          <span>Brand Identity</span><span class="ticker-sep">✦</span>
+          <span>Web Design</span><span class="ticker-sep">✦</span>
+          <span>UI/UX</span><span class="ticker-sep">✦</span>
+          <span>Web Development</span><span class="ticker-sep">✦</span>
+          <span>Motion Design</span><span class="ticker-sep">✦</span>
+          <span>SEO</span><span class="ticker-sep">✦</span>
+          <span>Digital Marketing</span><span class="ticker-sep">✦</span>
+          <span>E-Commerce</span><span class="ticker-sep">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">What We Do</span>
+          <h2 class="section-title reveal-title">Services Built<br /><em>for Growth</em></h2>
+          <p class="section-desc">From initial concept to final pixel, we handle every aspect of your digital presence with obsessive attention to detail.</p>
+        </div>
+        <div class="services-grid">
+
+          <article class="service-card" data-index="01">
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="18" y="4" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="4" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><rect x="18" y="18" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Brand Identity Design</h3>
+            <p>Logos, visual systems, and brand guidelines that make you instantly recognizable and trusted.</p>
+            <span class="service-arrow">→</span>
+          </article>
+
+          <article class="service-card" data-index="02">
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="3" y="6" width="26" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M10 28h12M16 24v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Website Design & Development</h3>
+            <p>Fast, responsive, and beautifully crafted websites using modern tech stacks that perform.</p>
+            <span class="service-arrow">→</span>
+          </article>
+
+          <article class="service-card" data-index="03">
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 4l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>User-centered interfaces for apps and platforms — wireframes, prototypes, and polished final designs.</p>
+            <span class="service-arrow">→</span>
+          </article>
+
+          <article class="service-card" data-index="04">
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="1.5"/><path d="M10 16c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="16" r="2" fill="currentColor"/></svg>
+            </div>
+            <h3>Digital Marketing & SEO</h3>
+            <p>Search visibility, content strategy, and paid campaigns that bring qualified traffic and conversions.</p>
+            <span class="service-arrow">→</span>
+          </article>
+
+          <article class="service-card" data-index="05">
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M6 28V16l10-12 10 12v12" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><rect x="12" y="20" width="8" height="8" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>E-Commerce Solutions</h3>
+            <p>Shopify, WooCommerce, and custom storefronts optimized for maximum sales and minimal friction.</p>
+            <span class="service-arrow">→</span>
+          </article>
+
+          <article class="service-card" data-index="06">
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M8 24V12l8-8 8 8v12H8z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M4 28h24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="16" cy="18" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+            </div>
+            <h3>Motion & Visual Design</h3>
+            <p>Animations, explainer videos, social media graphics, and visual assets that command attention.</p>
+            <span class="service-arrow">→</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK / PORTFOLIO SECTION -->
+    <section id="work" class="section work-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Selected Work</span>
+          <h2 class="section-title reveal-title">Projects We're<br /><em>Proud Of</em></h2>
+        </div>
+      </div>
+      <div class="work-grid">
+
+        <article class="work-item work-large">
+          <div class="work-img" style="background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);">
+            <div class="work-overlay">
+              <div class="work-overlay-inner">
+                <span>View Project</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div class="work-placeholder">
+              <div class="wp-circle"></div>
+              <div class="wp-bar"></div>
+              <div class="wp-bar w70"></div>
+            </div>
+          </div>
+          <div class="work-info">
+            <span class="work-cat">Brand + Web</span>
+            <h3>TechFlow SaaS Platform</h3>
+            <p>Complete brand overhaul and web presence for a B2B SaaS startup.</p>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <div class="work-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);">
+            <div class="work-overlay">
+              <div class="work-overlay-inner">
+                <span>View Project</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div class="work-placeholder">
+              <div class="wp-grid">
+                <div class="wpg-item"></div>
+                <div class="wpg-item"></div>
+                <div class="wpg-item"></div>
+                <div class="wpg-item"></div>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <span class="work-cat">E-Commerce</span>
+            <h3>Bloom Botanicals</h3>
+          </div>
+        </article>
+
+        <article class="work-item">
+          <div class="work-img" style="background: linear-gradient(135deg, #2d1b69, #11003a, #0d0221);">
+            <div class="work-overlay">
+              <div class="work-overlay-inner">
+                <span>View Project</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div class="work-placeholder">
+              <div class="wp-phone"></div>
+            </div>
+          </div>
+          <div class="work-info">
+            <span class="work-cat">UI/UX Design</span>
+            <h3>Finly Banking App</h3>
+          </div>
+        </article>
+
+        <article class="work-item work-wide">
+          <div class="work-img" style="background: linear-gradient(135deg, #0a0a0a, #1c1c1c, #111827);">
+            <div class="work-overlay">
+              <div class="work-overlay-inner">
+                <span>View Project</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 15L15 5M15 5H7M15 5v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              </div>
+            </div>
+            <div class="work-placeholder wp-wide">
+              <div class="wp-nav"></div>
+              <div class="wp-hero-text">
+                <div class="wp-bar"></div>
+                <div class="wp-bar w50"></div>
+              </div>
+            </div>
+          </div>
+          <div class="work-info">
+            <span class="work-cat">Full Redesign</span>
+            <h3>NovaCorp Corporate Website — 2024</h3>
+            <p>End-to-end website strategy, design, and development for an enterprise client.</p>
+          </div>
+        </article>
+
+      </div>
+      <div class="work-cta-wrap">
+        <a href="#contact" class="btn btn-primary">See All Projects</a>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <div class="about-bg-line"></div>
+      <div class="container about-container">
+        <div class="about-left">
+          <span class="section-tag">About Signjoy</span>
+          <h2 class="section-title reveal-title">A Studio That<br />Sweats the<br /><em>Details</em></h2>
+          <a href="#contact" class="btn btn-primary">Work With Us</a>
+        </div>
+        <div class="about-right">
+          <p class="about-lead">We're a tight-knit team of designers and developers obsessed with one thing: making your digital product impossible to ignore.</p>
+          <p class="about-body">Founded in India, working globally — Signjoy partners with startups, scale-ups, and established brands to craft digital experiences that are as effective as they are beautiful. We don't believe in cookie-cutter solutions. Every project is researched, strategized, and hand-crafted from scratch.</p>
+          <div class="about-values">
+            <div class="value-item">
+              <span class="value-icon">01</span>
+              <div>
+                <strong>Design-Led Thinking</strong>
+                <p>Every decision starts with the user and ends with the business goal.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <span class="value-icon">02</span>
+              <div>
+                <strong>Pixel-Perfect Execution</strong>
+                <p>We sweat the details so you don't have to. Quality is non-negotiable.</p>
+              </div>
+            </div>
+            <div class="value-item">
+              <span class="value-icon">03</span>
+              <div>
+                <strong>Transparent Partnership</strong>
+                <p>No jargon, no surprises. Just clear communication and real results.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="process" class="section process-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">How We Work</span>
+          <h2 class="section-title reveal-title">Our Process,<br /><em>Simplified</em></h2>
+          <p class="section-desc">A proven four-step process that takes your idea from concept to a live, converting digital product.</p>
+        </div>
+        <div class="process-steps">
+          <div class="process-step" data-step="01">
+            <div class="step-number">01</div>
+            <div class="step-content">
+              <h3>Discovery & Strategy</h3>
+              <p>We dive deep into your business, audience, and competitors. We map goals, define KPIs, and set a clear strategy before a single pixel is placed.</p>
+            </div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="process-step" data-step="02">
+            <div class="step-number">02</div>
+            <div class="step-content">
+              <h3>Design & Prototype</h3>
+              <p>Wireframes, mood boards, and interactive prototypes. You'll see and feel your product before development begins, saving time and money.</p>
+            </div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="process-step" data-step="03">
+            <div class="step-number">03</div>
+            <div class="step-content">
+              <h3>Build & Develop</h3>
+              <p>Clean, performant code. We develop your product with speed, accessibility, and SEO baked in from day one.</p>
+            </div>
+            <div class="step-connector"></div>
+          </div>
+          <div class="process-step" data-step="04">
+            <div class="step-number">04</div>
+            <div class="step-content">
+              <h3>Launch & Grow</h3>
+              <p>We don't just hand you the keys. We support your launch, measure performance, and iterate for continuous improvement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section testimonial-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">What Clients Say</span>
+          <h2 class="section-title reveal-title">Straight from<br /><em>Our Clients</em></h2>
+        </div>
+        <div class="testimonials-grid">
+          <article class="testimonial-card featured-testimonial">
+            <div class="quote-mark">"</div>
+            <p>"Signjoy completely transformed our online presence. Our conversion rate doubled within 3 months of launch. The team is professional, fast, and genuinely cares about results."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar av-1">RK</div>
+              <div>
+                <strong>Rahul Kumar</strong>
+                <span>Founder, TechFlow India</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <p>"They took our brand from a rough idea to a complete visual identity in 2 weeks. The quality of work was far beyond what we expected."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar av-2">PS</div>
+              <div>
+                <strong>Priya Sharma</strong>
+                <span>CEO, Bloom Botanicals</span>
+              </div>
+            </div>
+          </article>
+          <article class="testimonial-card">
+            <div class="quote-mark">"</div>
+            <p>"Best design agency we've worked with. They listen, they execute, and they deliver on time. Highly recommend for any serious business."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar av-3">AM</div>
+              <div>
+                <strong>Arjun Mehta</strong>
+                <span>Product Lead, Finly</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section id="contact" class="cta-section">
+      <div class="cta-bg">
+        <div class="cta-orb"></div>
+      </div>
+      <div class="container cta-container">
+        <span class="section-tag light">Let's Build Something</span>
+        <h2 class="cta-title reveal-title">Ready to Make<br />Your <em>Mark?</em></h2>
+        <p class="cta-sub">Tell us about your project and we'll get back to you within 24 hours with a free consultation.</p>
+        <div class="cta-actions">
+          <a href="mailto:hello@signjoy.in" class="btn btn-white">
+            <span>hello@signjoy.in</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-outline-white">WhatsApp Us</a>
+        </div>
+        <div class="cta-trust">
+          <span>✓ Free consultation</span>
+          <span>✓ No commitment</span>
+          <span>✓ 24hr response</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo"><span class="logo-dot"></span>signjoy</a>
+        <p>Design & Web Development<br />Studio based in India</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4c0-1.1.9-2 2-2s2 .9 2 2v4M12 10v7"/></svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l16 16M4 20L20 4"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">Brand Design</a>
+          <a href="#">Web Design</a>
+          <a href="#">Development</a>
+          <a href="#">UI/UX</a>
+          <a href="#">SEO</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Work</a>
+          <a href="#">Process</a>
+          <a href="#">Careers</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:hello@signjoy.in">hello@signjoy.in</a>
+          <a href="https://www.signjoy.in">signjoy.in</a>
+          <span>India — Worldwide</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <span>© 2025 Signjoy. All rights reserved.</span>
+        <span>Crafted with obsession ✦</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
